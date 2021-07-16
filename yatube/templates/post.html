@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Страница записи{% endblock %}
+{% block header %}Страница записи{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-3 mb-3 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <div class="h2">
+            <!-- Имя автора -->
+            {{ author.get_full_name }}
+          </div>
+          <div class="h3 text-muted">
+            <!-- username автора -->
+            @{{ author }}
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="h6 text-muted">
+              Подписчиков: XXX <br>
+              Подписан: XXX
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">
+              <!--Количество записей -->
+              Записей: {{ count }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+    <!-- Пост -->
+      <div class="card mb-3 mt-1 shadow-sm">
+        <div class="card-body">
+          <p class="card-text">
+            <!-- Ссылка на страницу автора в атрибуте href; username автора в тексте ссылки -->
+            <a href="/{{author}}/">
+              <strong class="d-block text-gray-dark">
+                @{{ author }}
+              </strong>
+            </a>
+            <!-- Текст поста -->
+            {{ post }} 
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <!-- Ссылка на редактирование, показывается только автору записи.
+              Эту ссылку вы подключите в финальном задании спринта -->
+              <a class="btn btn-sm text-muted" href="/{{ author }}/{{ post.id }}/edit" role="button">
+                Редактировать
+              </a>
+            </div>
+            <!-- Дата публикации  -->
+            <small class="text-muted">{{ post.pub_date| date:"j E Y" }} г.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %} 
+
+
+
+
