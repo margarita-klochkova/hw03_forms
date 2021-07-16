@@ -139,4 +139,3 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles'),
 ]
-
