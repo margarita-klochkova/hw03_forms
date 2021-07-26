@@ -27,8 +27,3 @@ class Post(models.Model):
     def __str__(self):
         return self.text
 
-
-class AboutAuthor(TemplateView):
-    # В переменной template_name обязательно указывается имя шаблона,
-    # на основе которого будет создана возвращаемая страница
-    template_name = 'about/author.html'
