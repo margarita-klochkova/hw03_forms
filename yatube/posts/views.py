@@ -8,8 +8,6 @@ from .forms import PostForm
 from .models import Group, Post
 
 
-
-
 User = get_user_model()
 
 
@@ -49,12 +47,11 @@ def profile(request, username):
 def post_view(request, username, post_id):
     author = get_object_or_404(User, username=username)
     count = author.posts.count()
-    post = get_object_or_404(Post, pk=post_id, author__username=username) 
+    post = get_object_or_404(Post, pk=post_id, author__username=username)
     context = {
         "author": author,
         "count": count,
-        "post": post, 
-        }
+        "post": post, }
     return render(request, "post.html", context)
 
 
